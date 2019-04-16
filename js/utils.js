@@ -39,16 +39,11 @@ function addClass (elem, className) {
 }
 
 function generateColor () {
-  return 'rgb(' + random (20, 255) + ',' + random (20, 255) + ',' + random (20, 255) + ')';
+  return '#' + Math.floor(Math.random()*16777215).toString(16);
+  // return 'rgb(' + randomInteger (20, 255) + ',' + randomInteger (20, 255) + ',' + randomInteger (20, 255) + ')';
 }
 
-function random (min, max){
-  if (!min && min !== 0) {
-    return Math.random();
-  } else if (!max) {
-    return Math.random() * min;
-  }
-
-  return Math.random() * (max - min) + min;
+function randomInteger(min, max) {
+  return Math.round(min - 0.5 + Math.random() * (max - min + 1));
 }
 

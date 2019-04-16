@@ -1,9 +1,9 @@
 function generateLines () {
-    const linesCount = random(2, 7);
+    const linesCount = randomInteger(2, 7);
     const lines = [];
 
     for (let ii = 0; ii < linesCount; ii++) {
-        const elemsCount = random(2, 7);
+        const elemsCount = randomInteger(2, 7);
 
         const lineItem = {
             background: generateColor(),
@@ -13,10 +13,10 @@ function generateLines () {
         let minWidth = 100 / (elemsCount / 2);
         let leftWidth = 100;
         for (let kk = 0; kk < elemsCount; kk++) {
-            let elWidth = (kk === elemsCount - 1) ? leftWidth : Math.round(random(minWidth, leftWidth * .2));
+            let elWidth = (kk === elemsCount - 1) ? leftWidth : randomInteger(minWidth, leftWidth * .2);
             const elemItem = {
                 background: generateColor(),
-                updateTime: Math.round(random(1500, 10000)),
+                updateTime: randomInteger(1500, 10000),
                 width: elWidth
             };
 
