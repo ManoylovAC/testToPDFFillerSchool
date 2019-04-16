@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body, div {
+      padding: 0;
+      margin: 0;
+    }
+
+    div {
+      font-size: 0;
+    }
+
+    .line{
+      display: flex;
+    }
+    .line__elem{
+      display: inline-block;
+      transition: background .3s;
+    }
+
+    .fullsize {
+      width: 100vw;
+      height: 100vh;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<script src="js/utils.js"></script>
+<script src="js/data-generator.js"></script>
+<script src="js/color-grid.js"></script>
+<script>
+
+  const config = {
+    container: document.body,
+    lineClassName: 'line',
+    lineElementClassName: 'line__elem',
+    lineElementUpdateAttr: 'timeUpdate',
+    data: {
+      lines: generateLines ()
+    }
+  };
+
+  const gridBuilder = new ColorGrid(config);
+  gridBuilder.buildAndDrawColorGrid();
+
+  config.container.addEventListener('click', _ => {
+    gridBuilder.rebuildGrid({lines: generateLines ()});
+  });
+
+</script>
+</body>
+</html>
